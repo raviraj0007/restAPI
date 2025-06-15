@@ -1,12 +1,15 @@
 
 
-
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://raviraj04066:au0LeDUThAakbhQu@cluster0.hvtskkb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      uri: mongodb+srv://raviraj04066:i9sgC9alaqIy4H6K@cluster0.hvtskkb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: journaldb
       auto-index-creation: true
 
 server:
-  port: 8080
+  port: 8081
+
+weather:
+  api:
+    key: ef08561eb36175c4e3e95406ab248ae3

@@ -1,6 +1,7 @@
 package api.restapi.controller;
 
 
+import api.restapi.cache.AppCache;
 import api.restapi.entity.User;
 import api.restapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,9 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AppCache appCache;
+
 
     @GetMapping("/all-users")
     public ResponseEntity<?> getAllusers() {
@@ -37,5 +41,8 @@ public class AdminController {
         userService.saveAdmin(user);
     }
 
-
+    @GetMapping("/clear-app-cache")
+    public void clearAppCache() {
+        appCache.init();
+    }
 }
