@@ -28,24 +28,6 @@ A simple and secure web application for writing and managing personal journal en
 
 ---
 
-## 📁 Project Structure
-journal-app/
-├── src/
-│ ├── main/
-│ │ ├── java/com/example/journal/
-│ │ │ ├── controller/
-│ │ │ ├── service/
-│ │ │ ├── repository/
-│ │ │ ├── model/
-│ │ │ └── config/
-│ │ └── resources/
-│ │ └── application.properties
-├── pom.xml
-└── README.md
-
-
----
-
 ## 📌 API Endpoints
 
 | Method | Endpoint             | Description                  |
@@ -78,18 +60,5 @@ cd journal-app
 # Run the application (Maven)
 ./mvnw spring-boot:run
 
-🔧 Configuration
-Edit src/main/resources/application.properties:
-
-properties
-Copy
-Edit
-spring.data.mongodb.uri=mongodb://localhost:27017/journaldb
-spring.security.user.name=admin
-spring.security.user.password=admin123
-
-🔐 Authentication
-You can secure endpoints using Spring Security and use tools like Postman to pass login credentials.
-
-For example, log in and get a JWT (if using token auth) or manage session cookies.
+---
 
