@@ -7,6 +7,20 @@ spring:
       database: journaldb
       auto-index-creation: true
 
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: fake097208@gmail.com
+    password: cpqw vewo grxn hlxg
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
 server:
   port: 8081
 
