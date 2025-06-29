@@ -2,11 +2,20 @@
 
 spring:
   data:
+
+#    redis:
+#      host: redis-14455.crce182.ap-south-1-1.ec2.redns.redis-cloud.com:14455
+##      host: 3.6.94.64
+#      port: 14455
+#      password: WjvbLAyE9TeeSPQAYaHfO8RAQHdWhSYU
+
+    redis:
+      url: redis://default:WjvbLAyE9TeeSPQAYaHfO8RAQHdWhSYU@redis-14455.crce182.ap-south-1-1.ec2.redns.redis-cloud.com:14455
+
     mongodb:
       uri: mongodb+srv://raviraj04066:i9sgC9alaqIy4H6K@cluster0.hvtskkb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       database: journaldb
       auto-index-creation: true
-
 
   mail:
     host: smtp.gmail.com
@@ -19,7 +28,6 @@ spring:
           auth: true
           starttls:
             enable: true
-
 
 server:
   port: 8081
