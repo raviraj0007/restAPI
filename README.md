@@ -13,18 +13,22 @@ A simple and secure web application for writing and managing personal journal en
 - ✅ MongoDB document-based storage
 - ✅ Timestamped entries
 - ✅ Clean and modular code structure
+- ✅ API testing with Postman
+- ✅ Caching with Redis for performance
 
 ---
 
 ## 🧑‍💻 Tech Stack
 
-| Layer        | Technology         |
-|--------------|--------------------|
-| Backend      | Java, Spring Boot  |
-| Database     | MongoDB            |
-| Security     | Spring Security + BCrypt |
-| API Testing  | Postman            |
-| Build Tool   | Maven / Gradle     |
+| Layer           | Technology               |
+|-----------------|--------------------------|
+| Backend         | Java, Spring Boot        |
+| Database        | MongoDB                  |
+| Security        | Spring Security + BCrypt |
+| API Testing     | Postman                  |
+| Build Tool      | Maven / Gradle           |
+| Version Control | Git                      |
+| Caching         | Redis                    |
 
 ---
 
@@ -49,6 +53,7 @@ A simple and secure web application for writing and managing personal journal en
 - Java 17+
 - Maven or Gradle
 - MongoDB installed locally or use MongoDB Atlas
+- Redis (optional for caching)
 
 ### 📦 Build and Run
 
