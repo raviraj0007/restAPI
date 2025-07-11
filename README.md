@@ -1,6 +1,7 @@
 # 📓 Journal Entry Web App
 
-A simple and secure web application for writing and managing personal journal entries, built using **Spring Boot** and **MongoDB**.
+A simple and secure web application for writing and managing personal journal entries, built using **Spring Boot**, **MongoDB**, and **Redis**.  
+✅ Now fully deployed on Render using Docker.
 
 ---
 
@@ -12,9 +13,30 @@ A simple and secure web application for writing and managing personal journal en
 - ✅ RESTful APIs using Spring Boot
 - ✅ MongoDB document-based storage
 - ✅ Timestamped entries
-- ✅ Clean and modular code structure
+- ✅ Redis Caching for performance
+- ✅ Email verification & password recovery
 - ✅ API testing with Postman
-- ✅ Caching with Redis for performance
+- ✅ Dockerized for cloud deployment
+
+---
+
+## 🌐 Live Public Endpoint
+
+👉 **Base URL:** [`https://restapi-s6gb.onrender.com`](https://restapi-s6gb.onrender.com)
+
+### 📌 Public API Endpoints
+
+| Method | Endpoint                       | Description                       |
+|--------|--------------------------------|-----------------------------------|
+| POST   | `/api/auth/register`           | Register a new user               |
+| POST   | `/api/auth/login`              | Authenticate user & get token     |
+| POST   | `/api/journals`                | Create a new journal entry        |
+| GET    | `/api/journals`                | List all entries for user         |
+| GET    | `/api/journals/{id}`           | Get a specific entry              |
+| PUT    | `/api/journals/{id}`           | Update an entry                   |
+| DELETE | `/api/journals/{id}`           | Delete an entry                   |
+
+> ⚠️ Most journal routes require JWT token in the `Authorization: Bearer <token>` header.
 
 ---
 
@@ -23,47 +45,34 @@ A simple and secure web application for writing and managing personal journal en
 | Layer           | Technology               |
 |-----------------|--------------------------|
 | Backend         | Java, Spring Boot        |
-| Database        | MongoDB                  |
-| Security        | Spring Security + BCrypt |
-| API Testing     | Postman                  |
-| Build Tool      | Maven / Gradle           |
-| Version Control | Git                      |
+| Database        | MongoDB Atlas            |
+| Security        | Spring Security + JWT    |
+| Build Tool      | Gradle                   |
 | Caching         | Redis                    |
+| Mail Service    | Gmail SMTP (TLS)         |
+| Deployment      | Docker + Render          |
+| API Testing     | Postman                  |
+| Version Control | Git                      |
 
 ---
 
-## 📌 API Endpoints
+## 🐳 Docker Deployment (Used in Render)
 
-| Method | Endpoint             | Description                  |
-|--------|----------------------|------------------------------|
-| POST   | `/api/auth/register` | Register a new user          |
-| POST   | `/api/auth/login`    | Authenticate user & get token|
-| POST   | `/api/journals`      | Create a new journal entry   |
-| GET    | `/api/journals`      | List all entries             |
-| GET    | `/api/journals/{id}` | Get a specific entry         |
-| PUT    | `/api/journals/{id}` | Update an entry              |
-| DELETE | `/api/journals/{id}` | Delete an entry              |
+> Render automatically builds using this Dockerfile
 
----
+### ✅ Dockerfile Overview
 
-## 🧪 Getting Started
+```dockerfile
+# Build stage
+FROM eclipse-temurin:17-jdk AS build
+WORKDIR /app
+COPY . .
+RUN chmod +x ./gradlew
+RUN ./gradlew build -x test
 
-### 🛠 Prerequisites
-
-- Java 17+
-- Maven or Gradle
-- MongoDB installed locally or use MongoDB Atlas
-- Redis (optional for caching)
-
-### 📦 Build and Run
-
-```bash
-# Clone the repository
-git clone https://github.com/your-username/journal-app.git
-cd journal-app
-
-# Run the application (Maven)
-./mvnw spring-boot:run
-
----
-
+# Runtime stage
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=build /app/build/libs/restAPI-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
