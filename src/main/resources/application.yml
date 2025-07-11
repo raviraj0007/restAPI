@@ -3,12 +3,6 @@
 spring:
   data:
 
-#    redis:
-#      host: redis-14455.crce182.ap-south-1-1.ec2.redns.redis-cloud.com:14455
-##      host: 3.6.94.64
-#      port: 14455
-#      password: WjvbLAyE9TeeSPQAYaHfO8RAQHdWhSYU
-
     redis:
       url: redis://default:WjvbLAyE9TeeSPQAYaHfO8RAQHdWhSYU@redis-14455.crce182.ap-south-1-1.ec2.redns.redis-cloud.com:14455
 
