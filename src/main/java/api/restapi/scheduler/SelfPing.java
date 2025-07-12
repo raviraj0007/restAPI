@@ -10,7 +10,7 @@ public class SelfPing {
     private final RestTemplate restTemplate = new RestTemplate();
 
 
-    @Scheduled(cron = "0 0 */2 * * *")
+    @Scheduled(cron = "0 */14 * * * *")
     public void pingSelf() {
         try {
             restTemplate.getForObject("https://restapi-s6gb.onrender.com/public/health-check", String.class);
@@ -19,5 +19,4 @@ public class SelfPing {
             // Fail silently
         }
     }
-
 }
