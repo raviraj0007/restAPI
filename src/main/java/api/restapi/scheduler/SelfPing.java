@@ -13,7 +13,7 @@ public class SelfPing {
     @Scheduled(cron = "0 0 */2 * * *")
     public void pingSelf() {
         try {
-            restTemplate.getForObject("https://restapi-s6gb.onrender.com/health-check", String.class);
+            restTemplate.getForObject("https://restapi-s6gb.onrender.com/public/health-check", String.class);
             // No logging needed
         } catch (Exception ignored) {
             // Fail silently
