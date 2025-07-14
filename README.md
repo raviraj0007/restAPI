@@ -22,7 +22,7 @@ A simple and secure web application for writing and managing personal journal en
 
 ## 🌐 Live Public Endpoint
 
-👉 **Base URL:** [`https://restapi-s6gb.onrender.com`](https://restapi-s6gb.onrender.com)
+👉 **Base URL:** [`https://restapi-s6gb.onrender.com`](https://restapi-s6gb.onrender.com/public/health-check)
 
 ### 📌 Public API Endpoints
 
