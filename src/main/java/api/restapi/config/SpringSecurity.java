@@ -33,7 +33,10 @@ public class SpringSecurity {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:3000"));   // add prod URL(s) later
+        config.setAllowedOrigins(List.of(
+                "http://localhost:3000",
+                "https://journalentry-1.netlify.app"
+        ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);        // only if you need cookies / Authorization header
